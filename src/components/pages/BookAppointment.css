@@ -1,0 +1,420 @@
+/* BookAppointment Component Styles */
+
+.book-appointment {
+  min-height: 100vh;
+  background: #f5f7fa;
+  padding: 32px 16px;
+}
+
+.book-appointment-container {
+  max-width: 800px;
+  width: calc(100% - 32px);
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  padding: clamp(16px, 5vw, 40px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.book-appointment-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.book-appointment-header h1 {
+  font-size: clamp(22px, 5vw, 28px);
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 8px 0;
+}
+
+.book-appointment-header p {
+  font-size: clamp(14px, 1rem, 16px);
+  color: #666;
+  margin: 0;
+}
+
+/* Progress steps */
+.progress-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.progress-step.active {
+  opacity: 1;
+}
+
+.progress-step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.progress-step.active .progress-step-number {
+  background-color: #0068cc;
+  color: white;
+}
+
+.progress-step.current .progress-step-number {
+  background-color: #0052a3;
+  color: white;
+  box-shadow: 0 0 0 4px rgba(0, 82, 163, 0.2);
+}
+
+.progress-step-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+  text-align: center;
+}
+
+.progress-step.active .progress-step-label {
+  color: #333;
+}
+
+/* Appointment step */
+.appointment-step {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.appointment-step h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.step-hint {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.step-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.step-actions > * {
+  flex: 1;
+}
+
+/* Specialty cards */
+.specialty-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(clamp(120px, 20vw, 150px), 1fr)
+  );
+  gap: clamp(8px, 2vw, 16px);
+  margin-bottom: 24px;
+}
+
+.specialty-card {
+  padding: 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.specialty-card:hover {
+  border-color: #0068cc;
+  box-shadow: 0 4px 12px rgba(0, 104, 204, 0.2);
+}
+
+.specialty-card.selected {
+  border-color: #0068cc;
+  background-color: rgba(0, 104, 204, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 104, 204, 0.3);
+}
+
+.specialty-card-title {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.specialty-card-desc {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Doctors list */
+.doctors-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.doctor-card {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.doctor-card:hover {
+  border-color: #0068cc;
+  box-shadow: 0 4px 12px rgba(0, 104, 204, 0.2);
+}
+
+.doctor-card.selected {
+  border-color: #0068cc;
+  background-color: rgba(0, 104, 204, 0.05);
+}
+
+.doctor-avatar {
+  font-size: 48px;
+  line-height: 1;
+}
+
+.doctor-info {
+  flex: 1;
+}
+
+.doctor-info h3 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.doctor-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.doctor-price {
+  font-weight: 600;
+  color: #0068cc;
+}
+
+/* Date and Time */
+.date-time-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.date-section,
+.time-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.date-section h2,
+.time-section h2 {
+  margin: 0;
+}
+
+.dates-grid,
+.times-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(60px, 12vw, 70px), 1fr));
+  gap: clamp(4px, 1vw, 8px);
+}
+
+.date-option,
+.time-option {
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.date-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-height: 70px;
+  justify-content: center;
+}
+
+.date-day {
+  font-size: 12px;
+  color: #999;
+  text-transform: uppercase;
+}
+
+.date-num {
+  font-size: 16px;
+  color: #333;
+}
+
+.date-option:hover,
+.time-option:hover {
+  border-color: #0068cc;
+  box-shadow: 0 4px 12px rgba(0, 104, 204, 0.2);
+}
+
+.date-option.selected,
+.time-option.selected {
+  border-color: #0068cc;
+  background-color: rgba(0, 104, 204, 0.05);
+  color: #0068cc;
+}
+
+/* Confirmation */
+.confirmation-details {
+  background-color: #f9f9f9;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 16px;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-row.total {
+  padding-top: 16px;
+  margin-top: 8px;
+  border-top: 2px solid #e0e0e0;
+  font-weight: 600;
+  font-size: 18px;
+  color: #0068cc;
+}
+
+.detail-label {
+  color: #666;
+}
+
+.detail-value {
+  color: #333;
+  font-weight: 500;
+}
+
+/* Empty state */
+.empty-state {
+  padding: 40px;
+  text-align: center;
+  color: #999;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+/* Responsive - Tablet */
+@media (max-width: 1024px) {
+  .book-appointment-container {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .book-appointment-container {
+    padding: 16px;
+    margin: 0 8px;
+    width: calc(100% - 16px);
+  }
+
+  .progress-steps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .progress-step-label {
+    font-size: 10px;
+  }
+
+  .step-actions {
+    flex-direction: column;
+  }
+
+  .step-actions > * {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-appointment {
+    padding: 12px;
+  }
+
+  .book-appointment-container {
+    padding: 12px;
+    margin: 0;
+    width: 100%;
+  }
+
+  .specialty-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .specialty-card {
+    padding: 12px;
+  }
+
+  .doctor-card {
+    flex-direction: column;
+    padding: 12px;
+  }
+
+  .dates-grid,
+  .times-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .detail-row {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .progress-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 320px) {
+  .dates-grid,
+  .times-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

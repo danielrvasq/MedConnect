@@ -1,0 +1,246 @@
+/* Onboarding Component Styles */
+
+.onboarding {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0068cc;
+  padding: 16px;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.onboarding-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(20px, 4vw, 40px);
+  max-width: 1200px;
+  width: calc(100% - 32px);
+  background: white;
+  border-radius: 16px;
+  padding: clamp(20px, 5vw, 40px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+}
+
+.onboarding-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Progress bar */
+.onboarding-progress {
+  width: 100%;
+  height: 4px;
+  background-color: #f0f0f0;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.onboarding-progress-bar {
+  height: 100%;
+  background: #0068cc;
+  transition: width 0.3s ease;
+}
+
+/* Step content */
+.onboarding-step {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.onboarding-title {
+  font-size: clamp(22px, 5vw, 28px);
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.onboarding-subtitle {
+  font-size: clamp(16px, 3vw, 18px);
+  font-weight: 600;
+  color: #0068cc;
+  margin: 0;
+}
+
+.onboarding-description {
+  font-size: clamp(14px, 1rem, 16px);
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.onboarding-tip {
+  font-size: 14px;
+  color: #0068cc;
+  line-height: 1.5;
+  margin: 12px 0 0 0;
+  padding: 12px;
+  background-color: rgba(0, 104, 204, 0.05);
+  border-left: 4px solid #0068cc;
+  border-radius: 4px;
+}
+
+/* Actions */
+.onboarding-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.onboarding-actions > * {
+  flex: 1;
+}
+
+.onboarding-skip {
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+  padding: 8px;
+}
+
+.onboarding-skip:hover {
+  color: #0068cc;
+}
+
+.onboarding-skip:focus-visible {
+  outline: 2px solid #0068cc;
+  outline-offset: 2px;
+}
+
+/* Visual section */
+.onboarding-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 104, 204, 0.1);
+  border-radius: 12px;
+  padding: 40px;
+}
+
+.onboarding-icon {
+  font-size: clamp(80px, 20vw, 120px);
+  animation: bounce 2s infinite;
+  line-height: 1;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Responsive - Tablet */
+@media (max-width: 1024px) {
+  .onboarding-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 20px;
+  }
+
+  .onboarding-visual {
+    display: none;
+  }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+  .onboarding-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px;
+    margin: 0;
+    width: calc(100% - 32px);
+  }
+
+  .onboarding-visual {
+    display: none;
+  }
+
+  .onboarding-title {
+    font-size: clamp(20px, 4vw, 24px);
+  }
+
+  .onboarding-subtitle {
+    font-size: clamp(14px, 2.5vw, 16px);
+  }
+
+  .onboarding-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .onboarding-actions > * {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .onboarding {
+    padding: 8px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .onboarding-container {
+    padding: 12px;
+    border-radius: 12px;
+    margin: 0 8px;
+    width: calc(100% - 16px);
+    gap: 12px;
+  }
+
+  .onboarding-title {
+    font-size: clamp(18px, 5vw, 22px);
+  }
+
+  .onboarding-subtitle {
+    font-size: clamp(13px, 3vw, 15px);
+  }
+
+  .onboarding-icon {
+    font-size: clamp(60px, 25vw, 100px);
+  }
+
+  .onboarding-skip {
+    font-size: 12px;
+    padding: 6px;
+  }
+}
+
+@media (max-width: 320px) {
+  .onboarding-container {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .onboarding-title {
+    font-size: 16px;
+  }
+
+  .onboarding-subtitle {
+    font-size: 12px;
+  }
+}
