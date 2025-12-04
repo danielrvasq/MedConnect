@@ -18,7 +18,7 @@ import { MedicalHistory } from "./components/pages/MedicalHistory";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("home");
-  const [isFirstTime, setIsFirstTime] = useState(true);
+  const [isFirstTime, setIsFirstTime] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
 
@@ -53,11 +53,6 @@ function App() {
     setUser(null);
     handleNavigate("home");
   };
-
-  // Render onboarding if first time
-  if (isFirstTime) {
-    return <Onboarding onComplete={handleOnboardingComplete} />;
-  }
 
   // Routes
   return (
