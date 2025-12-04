@@ -392,3 +392,100 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .home {
+    background: #1a1a1a;
+    color: #e0e0e0;
+  }
+
+  .home-header {
+    background: #2a2a2a;
+  }
+
+  .hero-content h1 {
+    color: #0068cc;
+  }
+
+  .hero-content h2 {
+    color: #fff;
+  }
+
+  .hero-content p {
+    color: #b0b0b0;
+  }
+
+  .features {
+    background: #2a2a2a;
+  }
+
+  .features h2 {
+    color: #fff;
+  }
+
+  .feature-card {
+    background: #333;
+    border-color: rgba(0, 104, 204, 0.2);
+  }
+
+  .feature-card h3 {
+    color: #fff;
+  }
+
+  .feature-card p {
+    color: #b0b0b0;
+  }
+
+  .how-it-works {
+    background: #1a1a1a;
+  }
+
+  .how-it-works h2 {
+    color: #fff;
+  }
+
+  .step {
+    background: #2a2a2a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .step h3 {
+    color: #fff;
+  }
+
+  .step p {
+    color: #b0b0b0;
+  }
+
+  .cta {
+    background: #0052a3;
+  }
+
+  .cta-button {
+    background: #e0e0e0;
+    color: #0068cc;
+  }
+
+  .cta-button:hover {
+    background: #fff;
+  }
+
+  .footer {
+    background: #0f0f0f;
+    border-top: 1px solid #333;
+  }
+
+  .footer-section a {
+    color: #888;
+  }
+
+  .footer-section a:hover {
+    color: #0068cc;
+  }
+
+  .footer-bottom {
+    border-top-color: #333;
+    color: #666;
+  }
+}

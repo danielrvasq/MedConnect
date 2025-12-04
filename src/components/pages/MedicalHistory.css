@@ -408,3 +408,128 @@
     padding: 20px;
   }
 }
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .medical-history {
+    background: #1a1a1a;
+  }
+
+  .medical-history-header h1 {
+    color: #fff;
+  }
+
+  .medical-history-header p {
+    color: #b0b0b0;
+  }
+
+  .empty-state {
+    background: #2a2a2a;
+    color: #b0b0b0;
+  }
+
+  .empty-state h2 {
+    color: #fff;
+  }
+
+  .empty-state p {
+    color: #b0b0b0;
+  }
+
+  .back-button:hover {
+    background-color: #0052a3;
+  }
+
+  .search-box input {
+    background: #333;
+    border-color: #444;
+    color: #fff;
+  }
+
+  .search-box input:focus {
+    border-color: #0068cc;
+    box-shadow: 0 0 0 3px rgba(0, 104, 204, 0.2);
+  }
+
+  .search-icon {
+    color: #b0b0b0;
+  }
+
+  .filter-btn {
+    background: #333;
+    border-color: #444;
+    color: #b0b0b0;
+  }
+
+  .filter-btn:hover {
+    border-color: #0068cc;
+    color: #0068cc;
+  }
+
+  .filter-btn.active {
+    background: #0068cc;
+    color: white;
+  }
+
+  .consultation-card {
+    background: #2a2a2a;
+    border-color: #444;
+  }
+
+  .consultation-card:hover {
+    border-color: #0068cc;
+    box-shadow: 0 10px 30px rgba(0, 104, 204, 0.15);
+  }
+
+  .consultation-info h3 {
+    color: #fff;
+  }
+
+  .time {
+    color: #888;
+  }
+
+  .detail-item .label {
+    color: #888;
+  }
+
+  .detail-item .value {
+    color: #b0b0b0;
+  }
+
+  .consultation-details {
+    border-color: #444;
+  }
+
+  .modal-content {
+    background: #2a2a2a;
+  }
+
+  .modal-close {
+    color: #888;
+  }
+
+  .modal-close:hover {
+    color: #fff;
+  }
+
+  .modal-content h2 {
+    color: #fff;
+  }
+
+  .modal-section p {
+    color: #b0b0b0;
+  }
+
+  .detail-row {
+    border-bottom-color: #444;
+  }
+
+  .detail-row .label {
+    color: #888;
+  }
+
+  .detail-row span:last-child {
+    color: #e0e0e0;
+  }
+}

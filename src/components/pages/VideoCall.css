@@ -210,11 +210,13 @@
 .video-container {
   flex: 1;
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr 200px;
+  display: flex;
+  flex-direction: column;
   gap: 12px;
   padding: 12px;
   background: #000;
+  min-height: 0;
+  height: 100%;
 }
 
 .video-remote {
@@ -222,6 +224,8 @@
   border-radius: 8px;
   overflow: hidden;
   background: #111;
+  flex: 1;
+  min-height: 200px;
 }
 
 .video-stream {
@@ -258,6 +262,11 @@
 }
 
 .video-local {
+  position: absolute;
+  bottom: 80px;
+  right: 12px;
+  width: 120px;
+  height: 170px;
   aspect-ratio: 9/16;
   border-radius: 8px;
   background: #222;
@@ -266,6 +275,7 @@
   justify-content: center;
   color: white;
   font-size: 12px;
+  z-index: 5;
 }
 
 .local-placeholder {
@@ -359,17 +369,283 @@
   font-size: 12px;
 }
 
-/* Call controls */
+/* Call controls - Google Meet style */
 .call-controls {
   display: flex;
   justify-content: center;
-  gap: 12px;
+  align-items: center;
+  gap: 16px;
   padding: 16px;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.85);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.call-controls > * {
-  min-width: 120px;
+.control-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.control-btn .btn-text {
+  display: none;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.control-btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.control-btn.active {
+  background-color: #0068cc;
+}
+
+.control-btn.active:hover {
+  background-color: #0052a3;
+}
+
+.control-btn.danger {
+  background-color: rgba(220, 53, 69, 0.8);
+}
+
+.control-btn.danger:hover {
+  background-color: #dc3545;
+  transform: scale(1.1);
+}
+
+.control-btn.end-call {
+  background-color: #dc3545;
+  width: 64px;
+  height: 64px;
+  font-size: 28px;
+}
+
+.control-btn.end-call:hover {
+  background-color: #c82333;
+}
+
+/* Desktop: mostrar texto */
+@media (min-width: 1025px) {
+  .control-btn {
+    width: auto;
+    height: auto;
+    padding: 10px 16px;
+    font-size: 20px;
+    gap: 10px;
+  }
+
+  .control-btn .btn-text {
+    display: inline;
+  }
+
+  .control-btn.end-call {
+    width: auto;
+    height: auto;
+    padding: 10px 20px;
+    font-size: 18px;
+  }
+}
+
+/* In-Call Responsive */
+@media (max-width: 1200px) {
+  .video-container {
+    grid-template-columns: 1fr 160px;
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .video-local {
+    aspect-ratio: 9/16;
+  }
+
+  .chat-sidebar {
+    right: 176px;
+    width: 250px;
+    height: calc(100% - 80px);
+  }
+
+  .call-controls {
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .control-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+    border-radius: 6px;
+  }
+
+  .control-btn.end-call {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .video-container {
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .video-remote {
+    flex: 1;
+    min-height: 300px;
+  }
+
+  .video-local {
+    position: absolute;
+    bottom: 70px;
+    right: 8px;
+    width: 110px;
+    height: 155px;
+  }
+
+  .chat-sidebar {
+    right: 130px;
+    top: 8px;
+    width: 280px;
+    height: 50vh;
+    max-height: calc(100% - 200px);
+  }
+
+  .video-avatar {
+    font-size: clamp(40px, 12vw, 60px);
+  }
+
+  .video-name {
+    font-size: clamp(14px, 3vw, 18px);
+  }
+
+  .call-controls {
+    gap: 6px;
+    padding: 8px;
+    flex-wrap: wrap;
+  }
+
+  .control-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 6px;
+  }
+
+  .control-btn.end-call {
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-container {
+    padding: 4px;
+    gap: 4px;
+  }
+
+  .video-remote {
+    flex: 1;
+    min-height: 250px;
+    border-radius: 4px;
+  }
+
+  .video-local {
+    width: 90px;
+    height: 130px;
+    bottom: 60px;
+    right: 4px;
+  }
+
+  .local-placeholder {
+    font-size: 16px;
+  }
+
+  .chat-sidebar {
+    width: 250px;
+    height: 40vh;
+    right: 4px;
+    top: 4px;
+    max-height: calc(100% - 180px);
+  }
+
+  .chat-header {
+    padding: 8px;
+  }
+
+  .chat-header h3 {
+    font-size: 12px;
+  }
+
+  .chat-messages {
+    padding: 8px;
+    gap: 6px;
+  }
+
+  .message {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  .chat-input {
+    padding: 6px;
+    gap: 2px;
+  }
+
+  .chat-input input {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  .chat-input button {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+
+  .video-avatar {
+    font-size: clamp(30px, 10vw, 40px);
+    margin-bottom: 8px;
+  }
+
+  .video-name {
+    font-size: clamp(12px, 3vw, 14px);
+  }
+
+  .video-status {
+    font-size: 10px;
+  }
+
+  .call-controls {
+    gap: 4px;
+    padding: 6px;
+    flex-wrap: wrap;
+  }
+
+  .control-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+
+  .control-btn.end-call {
+    width: 44px;
+    height: 44px;
+    font-size: 16px;
+  }
 }
 
 /* Post-Call */
@@ -512,20 +788,71 @@
 }
 
 /* Responsive */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .precall-content {
-    grid-template-columns: 1fr;
-    height: auto;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(12px, 2vw, 20px);
+    height: calc(100vh - 80px);
   }
 
   .precall-main {
     grid-column: span 1;
   }
+
+  .precall-sidebar {
+    grid-column: span 1;
+  }
 }
 
 @media (max-width: 768px) {
+  .video-call-container {
+    padding: clamp(12px, 2vw, 20px);
+  }
+
   .precall-content {
     grid-template-columns: 1fr;
+    gap: clamp(12px, 2vw, 16px);
+    height: auto;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+  }
+
+  .precall-main {
+    grid-column: span 1;
+    padding: clamp(12px, 3vw, 20px);
+  }
+
+  .precall-main h1 {
+    font-size: clamp(20px, 5vw, 24px);
+  }
+
+  .precall-subtitle {
+    font-size: clamp(14px, 3vw, 16px);
+  }
+
+  .countdown-timer {
+    font-size: clamp(36px, 8vw, 48px);
+  }
+
+  .camera-preview {
+    aspect-ratio: 16/9;
+  }
+
+  .test-buttons {
+    flex-direction: column;
+  }
+
+  .test-buttons > * {
+    flex: 1;
+  }
+
+  .precall-sidebar {
+    grid-column: span 1;
+    padding: clamp(12px, 3vw, 20px);
+  }
+
+  .doctor-avatar {
+    font-size: 48px;
   }
 
   .video-container {
@@ -545,6 +872,95 @@
 
   .call-controls > * {
     flex: 1 1 auto;
-    min-width: 100px;
+    min-width: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-call-container {
+    padding: clamp(8px, 2vw, 16px);
+  }
+
+  .precall-content {
+    gap: clamp(8px, 2vw, 12px);
+    height: auto;
+  }
+
+  .precall-main {
+    padding: clamp(12px, 2vw, 16px);
+  }
+
+  .precall-main h1 {
+    font-size: clamp(18px, 5vw, 20px);
+  }
+
+  .precall-subtitle {
+    font-size: clamp(12px, 3vw, 14px);
+  }
+
+  .countdown {
+    padding: clamp(12px, 2vw, 16px);
+    margin-bottom: 16px;
+  }
+
+  .countdown-timer {
+    font-size: clamp(28px, 8vw, 36px);
+  }
+
+  .checklist-item {
+    padding: 6px;
+    margin-bottom: 6px;
+  }
+
+  .precall-checklist h2 {
+    font-size: clamp(14px, 4vw, 16px);
+  }
+
+  .precall-camera-test {
+    margin-bottom: 16px;
+  }
+
+  .camera-preview {
+    margin-bottom: 8px;
+  }
+
+  .test-buttons {
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+
+  .precall-sidebar {
+    padding: clamp(12px, 2vw, 16px);
+  }
+
+  .precall-sidebar h3 {
+    font-size: clamp(14px, 3vw, 16px);
+  }
+
+  .doctor-card-mini h4 {
+    font-size: clamp(14px, 3vw, 16px);
+  }
+
+  .doctor-card-mini p {
+    font-size: clamp(12px, 2vw, 14px);
+  }
+
+  .doctor-avatar {
+    font-size: 40px;
+  }
+
+  .precall-actions {
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .call-controls {
+    padding: clamp(8px, 2vw, 12px);
+    gap: 6px;
+  }
+
+  .call-controls > * {
+    min-width: 60px;
+    font-size: clamp(12px, 2vw, 14px);
   }
 }

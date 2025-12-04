@@ -204,65 +204,56 @@ export function VideoCall({ onNavigate }) {
 
           {/* Controls */}
           <div className="call-controls">
-            <Button
-              variant={isMuted ? "danger" : "secondary"}
-              size="sm"
+            <button
+              className={`control-btn ${isMuted ? "danger" : "active"}`}
               onClick={() => setIsMuted(!isMuted)}
-              ariaLabel={
-                isMuted
-                  ? copy.videoCall.inCall.controls.unmute
-                  : copy.videoCall.inCall.controls.mute
-              }
+              title={isMuted ? copy.videoCall.inCall.controls.unmute : copy.videoCall.inCall.controls.mute}
               aria-pressed={isMuted}
+              aria-label={isMuted ? copy.videoCall.inCall.controls.unmute : copy.videoCall.inCall.controls.mute}
             >
-              {isMuted ? (
-                <FiMicOff style={{ marginRight: "4px" }} />
-              ) : (
-                <FiMic style={{ marginRight: "4px" }} />
-              )}{" "}
-              {copy.videoCall.inCall.controls.mute}
-            </Button>
+              {isMuted ? <FiMicOff /> : <FiMic />}
+              <span className="btn-text">{isMuted ? copy.videoCall.inCall.controls.unmute : copy.videoCall.inCall.controls.mute}</span>
+            </button>
 
-            <Button
-              variant={isVideoOff ? "danger" : "secondary"}
-              size="sm"
+            <button
+              className={`control-btn ${isVideoOff ? "danger" : "active"}`}
               onClick={() => setIsVideoOff(!isVideoOff)}
-              ariaLabel={copy.videoCall.inCall.controls.toggleVideo}
+              title={copy.videoCall.inCall.controls.toggleVideo}
               aria-pressed={isVideoOff}
+              aria-label={copy.videoCall.inCall.controls.toggleVideo}
             >
-              {isVideoOff ? (
-                <FiVideoOff style={{ marginRight: "4px" }} />
-              ) : (
-                <FiVideo style={{ marginRight: "4px" }} />
-              )}{" "}
-              Video
-            </Button>
+              {isVideoOff ? <FiVideoOff /> : <FiVideo />}
+              <span className="btn-text">Video</span>
+            </button>
 
-            <Button
-              variant="secondary"
-              size="sm"
+            <button
+              className={`control-btn ${showChat ? "active" : ""}`}
               onClick={() => setShowChat(!showChat)}
-              ariaLabel={copy.videoCall.inCall.uploadDocumentsAria}
+              title="Chat"
+              aria-label="Abrir chat"
             >
-              <FiMessageSquare style={{ marginRight: "4px" }} /> Chat
-            </Button>
+              <FiMessageSquare />
+              <span className="btn-text">Chat</span>
+            </button>
 
-            <Button
-              variant="secondary"
-              size="sm"
-              ariaLabel={copy.videoCall.inCall.uploadDocumentsAria}
+            <button
+              className="control-btn"
+              title="Compartir documentos"
+              aria-label="Compartir documentos"
             >
-              <FiPaperclip style={{ marginRight: "4px" }} /> Docs
-            </Button>
+              <FiPaperclip />
+              <span className="btn-text">Docs</span>
+            </button>
 
-            <Button
-              variant="danger"
-              size="sm"
+            <button
+              className="control-btn danger end-call"
               onClick={handleEndCall}
-              ariaLabel={copy.videoCall.inCall.controls.endCallAria}
+              title="Terminar llamada"
+              aria-label={copy.videoCall.inCall.controls.endCallAria}
             >
-              <FiPhoneOff style={{ marginRight: "4px" }} /> Terminar
-            </Button>
+              <FiPhoneOff />
+              <span className="btn-text">Terminar</span>
+            </button>
           </div>
         </div>
       )}

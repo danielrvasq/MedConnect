@@ -268,9 +268,9 @@
   justify-content: center;
 }
 
-.date-day {
+.date-day{
   font-size: 12px;
-  color: #999;
+  color: #333 !important;
   text-transform: uppercase;
 }
 
@@ -416,5 +416,96 @@
   .dates-grid,
   .times-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .book-appointment {
+    background: #1a1a1a;
+  }
+
+  .book-appointment-container {
+    background: #2a2a2a;
+    color: #e0e0e0;
+  }
+
+  .book-appointment-header h1,
+  .appointment-step h2 {
+    color: #fff;
+  }
+
+  .book-appointment-header p,
+  .step-hint,
+  .specialty-card-desc,
+  .doctor-meta,
+  .detail-label {
+    color: #b0b0b0;
+  }
+
+  .progress-step-number {
+    background-color: #3a3a3a;
+    color: #b0b0b0;
+  }
+
+  .progress-step-label {
+    color: #b0b0b0;
+  }
+
+  .progress-step.active .progress-step-label {
+    color: #fff;
+  }
+
+  .specialty-card,
+  .doctor-card,
+  .date-option,
+  .time-option {
+    background: #333;
+    border-color: #444;
+    color: #e0e0e0;
+  }
+
+  .specialty-card-title,
+  .doctor-info h3,
+  .date-num {
+    color: #fff;
+  }
+
+  .specialty-card:hover,
+  .doctor-card:hover,
+  .date-option:hover,
+  .time-option:hover {
+    border-color: #0068cc;
+    box-shadow: 0 4px 12px rgba(0, 104, 204, 0.3);
+  }
+
+  .specialty-card.selected,
+  .doctor-card.selected,
+  .date-option.selected,
+  .time-option.selected {
+    background-color: rgba(0, 104, 204, 0.2);
+    border-color: #0068cc;
+  }
+
+  .confirmation-details {
+    background-color: #333;
+    border-color: #444;
+  }
+
+  .detail-row {
+    border-bottom-color: #444;
+  }
+
+  .detail-row.total {
+    border-top-color: #444;
+  }
+
+  .detail-value {
+    color: #fff;
+  }
+
+  .empty-state {
+    background-color: #333;
+    color: #b0b0b0;
   }
 }

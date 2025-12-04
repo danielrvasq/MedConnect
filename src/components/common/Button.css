@@ -156,3 +156,36 @@
     min-height: 44px;
   }
 }
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .button-primary {
+    background-color: #0068cc;
+  }
+
+  .button-primary:hover:not(:disabled) {
+    background-color: #0052a3;
+  }
+
+  .button-secondary {
+    background-color: #333;
+    color: #e0e0e0;
+  }
+
+  .button-secondary:hover:not(:disabled) {
+    background-color: #444;
+    color: #fff;
+  }
+
+  .button-danger {
+    background-color: #c82333;
+  }
+
+  .button-danger:hover:not(:disabled) {
+    background-color: #dc3545;
+  }
+
+  .button:disabled {
+    opacity: 0.5;
+  }
+}
